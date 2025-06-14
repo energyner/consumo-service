@@ -133,23 +133,7 @@ footer {
   font-size: 14px;
 }
 
-   @media (max-width: 768px) {
-    .column {
-        flex: 0 0 100%; /* En pantallas más pequeñas, cada columna ocupa el 100% del ancho */
-        max-width: 100%; /* Ancho máximo del 100% */
-    }
-   }
-
-   @media (max-width: 600px) {
-    /* Estilos específicos para pantallas pequeñas */
-    input[type="text"],
-    button {
-      font-size: 16px; /* Aumenta el tamaño de la fuente para facilitar la lectura */
-      padding: 12px; /* Aumenta el padding para mejorar la usabilidad táctil */
-      z-index: 3;
-      position: absolute;
-    }
-  }
+ 
 /*estilos para los encabezamientos de los textos*/
 .subcapitulo1{
   border: 1px solid black; 
@@ -189,7 +173,8 @@ footer {
 /*API de consumo-energetico*/
 /*Button*/
 button {
-  width: 100%;
+  width: auto;
+  display: block;
   max-width: 300px; /* Controla el ancho del formulario */
   margin-bottom: 20px;
   background-color: #dce7f5;
@@ -250,4 +235,36 @@ form {
     border: 1px solid #bdc3c7; /* Un borde suave para definición */
     text-align: center; /* Centra el texto */
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Añade una ligera sombra */
+  }
+
+    @media (max-width: 768px) {
+    .column {
+        flex: 0 0 100%; /* En pantallas más pequeñas, cada columna ocupa el 100% del ancho */
+        max-width: 100%; /* Ancho máximo del 100% */
+    }
+   }
+
+   @media (max-width: 600px) {
+    /* Estilos específicos para pantallas pequeñas */
+    input[type="text"],
+    input[type="number"] 
+    {
+      font-size: 16px; /* Aumenta el tamaño de la fuente para facilitar la lectura */
+      padding: 12px; /* Aumenta el padding para mejorar la usabilidad táctil */
+      width: 100%; /* Asegura que los campos de entrada ocupen todo el ancho disponible */
+      box-sizing: border-box; /* Incluye padding y border en el ancho total */
+     }
+    button {
+    font-size: 16px;
+    padding: 12px;
+    display: block;
+    width: 100%; 
+    box-sizing: border-box; 
+    margin-top: 20px;
+
+    }
+
+  
+
+
   }
