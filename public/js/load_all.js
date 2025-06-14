@@ -29,9 +29,9 @@ function loadHTML(url, elementId) {
 
 function loadAll() {
     const elements = [
-        {url: './../public/html/menu.html', id: 'nav1'},
-        {url: './../public/html/dropdown.html', id: 'nav2'},
-        {url: './../public/html/footer.html', id: 'footer'},
+        {url: './../html/menu.html', id: 'nav1'},
+        {url: './../html/dropdown.html', id: 'nav2'},
+        {url: './../html/footer.html', id: 'footer'},
                
     ];
 

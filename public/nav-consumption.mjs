@@ -10,7 +10,7 @@ document.getElementById('consumo-form').addEventListener('submit', (event) => {
     // --- Configuración de URLs de API ---
     // URL de tu API desplegada en Google Cloud Run
     // ¡Asegúrate de que esta URL sea la correcta para tu servicio Cloud Run!
-    const CLOUD_RUN_API_URL = 'https://consumo-service-858389184339.us-east1.run.app/api/consumo-energetico'; 
+    const CLOUD_RUN_API_URL = 'https://consumo-service-487796814360.us-east1.run.app/api/consumo-energetico'; 
 
     // URL de tu API cuando se ejecuta localmente en tu PC (para desarrollo en laptop)
     const LOCAL_API_URL_LAPTOP = 'http://localhost:3006/api/consumo-energetico';
