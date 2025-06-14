@@ -1,240 +1,220 @@
-/* public/css/main11.css */
-
-/* public/css/main11.css */
-
-/* --- Estilos Generales y Resets --- */
+/* Estilos generales */
 body {
-    margin: 0;
-    font-family: 'Arial', sans-serif; /* Usar Arial si Inter no está cargado, o cargar Inter */
-    overflow-x: hidden; /* Evita el scroll horizontal */
-    padding-top: 80px; /* Espacio para el header fijo. Ajustar según la altura real de tu header */
+	font-family: 'PT Sans', sans-serif;
+	background-color: #fbfbfb;
 }
 
-/* Estilo para deshabilitar el scroll del cuerpo cuando el menú móvil está abierto */
-body.no-scroll {
-    overflow: hidden;
-}
+/* Estilos del menú hamburguesa */
 
-/* --- Estilos del Header Principal (donde se inyecta el menú) --- */
-/* Asumiendo que tu <header> tiene la clase 'header' */
-header.header {
-    position: fixed; /* Header fijo en la parte superior */
-    top: 0;
-    left: 0;
-    width: 100%;
-    background-color: #f5f5f5; /* Fondo del header */
-    padding: 10px 20px;
-    box-sizing: border-box;
-    display: flex;
-    justify-content: space-between; /* Alinea elementos a los extremos */
-    align-items: center;
-    z-index: 1002; /* Asegura que el header esté por encima de todo */
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    min-height: 80px; /* Altura mínima del header */
-}
-
-/* --- Contenedor para inyectar el HTML del menú hamburguesa --- */
-/* Este ID debe ser el que uses en tu HTML principal para <nav id="main-nav-container"> */
-#main-nav-container {
-    /* Aquí se inyecta <div id="main-menu-container"> */
-    display: flex; /* Usamos flex para alinear el icono a la derecha en el header */
-    justify-content: flex-end; /* Alinea el icono de hamburguesa a la derecha */
-    align-items: center;
-    width: auto; /* Ocupa el espacio necesario */
-}
-
-
-/* --- Estilos del Icono de Hamburguesa (#hamburger-icon y .bar) --- */
-#hamburger-icon {
-    width: 35px;
-    height: 30px;
-    cursor: pointer;
-    background-color: rgba(191, 191, 249, 0.1);
-    border-radius: 5px;
-    display: flex; /* Para centrar las barras */
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
-    padding: 5px;
-    z-index: 1003; /* Asegura que el icono esté por encima del menú y overlay */
-}
-
+#menu {
+	width: 35px;
+	height: 30px;
+	margin: 20px 0 10px 10px;
+	cursor: pointer;
+	background-color: rgba(191, 191, 249, 0.1); /* Light gray with 10% opacity */
+	border-radius: 5px;
+  }
+  
 .bar {
-    height: 5px;
-    width: 100%;
-    background-color: rgb(241, 15, 15);
-    display: block;
-    border-radius: 5px;
-    transition: 0.3s ease;
+	height: 5px;
+	width: 100%;
+	background-color: rgb(241, 15, 15);
+	display: block;
+	border-radius: 5px;
+	transition: 0.3s ease;
 }
 
-/* Animación del icono de hamburguesa a 'X' */
-#hamburger-icon.open .bar1 {
-    transform: translateY(4px) rotateZ(-45deg);
-}
-#hamburger-icon.open .bar3 {
-    transform: translateY(-6px) rotate(45deg);
-}
-#hamburger-icon.open .bar2 {
-    opacity: 0;
+#bar1 {
+	transform: translateY(-4px);
 }
 
-
-/* --- Estilos del Menú Desplegable (ul.nav-menu) --- */
-.nav-menu {
-    position: fixed; /* **CLAVE:** Fijo para que no se desplace con el contenido */
-    top: 0; /* Empieza desde el borde superior del viewport */
-    right: -100%; /* **CLAVE:** Oculto inicialmente, fuera de la pantalla a la derecha */
-    width: 75%; /* Ocupa el 75% del ancho de la pantalla */
-    max-width: 350px; /* Ancho máximo para el menú en tablets */
-    height: 100vh; /* **CLAVE:** Ocupa la altura total del viewport */
-    background-color: #1A237E; /* Fondo azul marino del menú */
-    padding-top: 80px; /* Deja espacio para el header fijo (ajusta según la altura real de tu header) */
-    box-sizing: border-box;
-    transition: right 0.3s ease-in-out; /* Transición suave para el deslizamiento */
-    list-style: none; /* Elimina los puntos de lista */
-    margin: 0; /* Sin margen */
-    z-index: 1001; /* Detrás del header, pero por encima del overlay y contenido */
-
-    /* **CLAVE para evitar conflictos con inputs y teclado:** */
-    overflow-y: auto; /* Permite scroll interno si el contenido es más largo que la altura de la pantalla */
-    -webkit-overflow-scrolling: touch; /* Mejora el scroll en iOS */
-
-    /* Oculto para eventos de ratón cuando no está activo */
-    visibility: hidden;
-    opacity: 0; /* Para una transición suave al abrir */
-    transition: right 0.3s ease-in-out, visibility 0.3s ease, opacity 0.3s ease;
+#bar3 {
+	transform: translateY(4px);
 }
 
-/* Estado activo del menú (cuando está visible) */
-.nav-menu.open {
-    right: 0; /* Se desliza a la vista */
-    visibility: visible;
-    opacity: 1;
+.nav a {
+            text-decoration: none; /* Sin subrayado en los enlaces */
+            color: black; /* Color del texto de los enlaces */
+          	display: block; /* Hace que el área activa del enlace sea todo el bloque del <li> */
+            padding: 3px; /* Añade espacio alrededor del texto del enlace */
+      }
+	
+	.nav a:hover {
+		background-color: yellow; /* Fondo amarillo al pasar el puntero */
+	} 
+
+.nav li a {
+	color: #fefcfc;
+	text-decoration: none;
+	font-size: 12px;
+	font-weight: 600;
+	transition: background-color 0.3s; /* Agrega una transición suave */
 }
 
-/* Estilos de los elementos de la lista principal del menú */
-.nav-menu li {
-    display: block; /* Cada elemento ocupa su propia línea */
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Separador sutil */
+.nav li a:hover,
+.nav li a:active  {
+	font-weight: bold;background-color: #FFD700; /* Cambia el fondo a amarillo fuerte al pasar el cursor o al hacer clic */
 }
 
-.nav-menu li:last-child {
-    border-bottom: none; /* No hay borde en el último elemento */
+.nav li {
+	list-style: none;
+	padding: 0;
 }
 
-.nav-menu li a {
-    color: #fefcfc; /* Color del texto de los enlaces */
-    text-decoration: none;
-    font-size: 16px; /* Ajustado para mejor legibilidad en móvil */
-    font-weight: 600;
-    display: block; /* Hace que el área de clic sea todo el bloque */
-    padding: 15px 20px; /* Más padding para facilitar el tacto */
-    transition: background-color 0.3s;
-}
-
-.nav-menu li a:hover,
-.nav-menu li a:active {
-    font-weight: bold;
-    background-color: #FFD700; /* Fondo amarillo al pasar el cursor o al hacer clic */
-    color: #1A237E; /* Cambia el color del texto para contraste */
-}
-
-/* Estilos para el sub-menú (Libro 1, Libro 2, etc.) */
-.sub-menu {
-    list-style: none;
-    padding-left: 20px; /* Indentación para sub-elementos */
-    margin-top: 5px;
-    margin-bottom: 5px;
-    display: block; /* Muestra el sub-menú en bloque */
-    background-color: rgba(0, 0, 0, 0.1); /* Fondo ligeramente diferente */
-}
-
-.sub-menu li {
-    border-bottom: none; /* No hay separador entre sub-elementos */
-}
-
-.sub-menu li a {
-    font-size: 14px; /* Tamaño de fuente más pequeño */
-    color: #eee;
-    padding: 8px 0 8px 0; /* Ajustado el padding para sub-elementos */
+.nav {
+	padding: 0;
+	margin: 0 10px;
+	transition: 0.3s ease;
+	display: none;
 }
 
 
-/* --- Estilos para el Fondo Oscuro (Overlay) --- */
+#menu-bar {
+	top: 0;
+	left: 0;
+	position: absolute;
+}
 
-.menu-overlay {
-    position: fixed; /* Fijo para cubrir toda la ventana */
+.menu-bg {
+    position: fixed;
     top: 0;
     left: 0;
-    width: 100vw; /* Cubre todo el ancho del viewport */
-    height: 100vh; /* Cubre toda la altura del viewport */
-    background-color: rgba(0, 0, 0, 0.6); /* Fondo semi-transparente */
-    z-index: 1000; /* Detrás del menú principal pero por encima del contenido */
-    opacity: 0; /* Oculto por defecto */
-    visibility: hidden; /* Oculto para eventos de ratón */
-    transition: opacity 0.3s ease, visibility 0.3s ease;
+    width: 20vw; /* Asegura que el fondo cubra toda la ventana */
+    height: 60vh; /* Asegura que el fondo cubra toda la ventana */
+    z-index: 1;
+    background:#1A237E; /* Fondo  azul marino */
+    border-radius: 0%;
+    transition: 0.3s ease;
+    display: none; /* Oculto por defecto */
+    padding: 5px; /* Padding de 5 px a cada lado */
+    color: rgb(255,255,255);/* Color  claro para el contenido del icono */
 }
 
-/* Cuando el overlay está activo */
-.menu-overlay.open {
-    opacity: 1; /* Se vuelve visible */
-    visibility: visible;
+.menu-bg.open {
+    background: rgb(26, 35, 126, 0.7); /* Fondo azul  al abrir */
+    display: block; /* Mostrar cuando se abre */
+	width: 20vw;
+	height: 60vh; /* Asegura que el fondo cubra toda la ventana */
+	color: rgb(16, 3, 35); /* Color gris claro para el contenido del icono */
+}
+
+#menu-bar {
+	z-index: 2;
 }
 
 
-/* --- Media Queries para responsividad --- */
-
-/* Oculta el icono de hamburguesa y muestra un menú horizontal en pantallas grandes */
-@media screen and (min-width: 768px) {
-    #hamburger-icon {
-        display: none; /* Oculta el icono de la hamburguesa en desktop */
-    }
-
-    /* Oculta el menú desplegable off-canvas en desktop */
-    .nav-menu {
-        display: none; /* Asegura que el menú móvil no se muestre */
-        /* Asegurarse de que el .menu-overlay tampoco se muestre en desktop */
-    }
-    .menu-overlay {
-        display: none;
-    }
-
-    /* Aquí puedes añadir estilos para tu menú de navegación horizontal de escritorio.
-       Asumo que tienes un <nav id="desktop-nav"> o similar en tu HTML principal.
-    */
-    /* Ejemplo de cómo podría ser un menú de escritorio: */
-    nav#desktop-nav { /* Si tienes un elemento <nav id="desktop-nav"> en tu HTML */
-        display: block; /* O flex, dependiendo de cómo quieras alinear los elementos */
-        /* background-color: #eee; /* Fondo si lo deseas */
-        /* padding: 10px 0; */
-    }
-    nav#desktop-nav ul {
-        list-style: none;
-        padding: 0;
-        margin: 0;
-        text-align: center;
-    }
-    nav#desktop-nav ul li {
-        display: inline-block; /* Elementos en línea */
-        margin-right: 20px;
-    }
-    nav#desktop-nav ul li a {
-        color: black; /* Color de enlaces en desktop */
-        text-decoration: none;
-        padding: 5px 10px;
-        font-size: 16px;
-    }
-    nav#desktop-nav .sub-menu { /* Para sub-menús en desktop, si los hay */
-        display: none; /* Se mostrará con JS o :hover */
-        position: absolute;
-        background-color: #f9f9f9;
-        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-        z-index: 10;
-        min-width: 160px;
-    }
-    nav#desktop-nav li:hover .sub-menu {
-        display: block; /* Muestra el sub-menú al pasar el ratón */
-    }
+.change .bar {
+	background-color: rgb(241, 15, 15);
 }
+
+.change #bar1 {
+	transform: translateY(4px) rotateZ(-45deg);
+}
+
+.change #bar3 {
+	transform: translateY(-6px) rotate(45deg);
+}
+
+.change #bar2 {
+	opacity: 0;
+}
+
+.change {
+	display: block;
+}
+
+	/*Media query para pantallas de diferentes anchos */
+	@media screen and (max-width: 576px) {
+		
+		.menu-bg {
+			 background: rgba(0, 0, 0, 0.6); /* Fondo naranja  al abrir */
+			 position: fixed;
+			 top: 0;
+			 left: 0;
+			 width: 	100vw; /* Asegura que el fondo cubra toda la ventana */
+			 height: 100vh; /* Asegura que el fondo cubra toda la ventana */
+		 }
+		 #menu-bar {
+			 position: absolute; /* Cambia la posición a relativa para permitir el posicionamiento relativo del menú */
+			 width: 40vw; /* Asegura que el fondo cubra toda la ventana */
+			 height: 60vh; /* Asegura que el fondo cubra toda la ventana */
+		 
+		 }
+		 .menu-bg.open {
+		 width: 40vw;
+		 height: 60vh; /* Asegura que el fondo cubra toda la ventana */
+		 
+		 }
+ 
+	 }
+ 
+	 @media (min-width: 576px) and (max-width: 767.98px) {
+		 .menu-bg {
+			 background: rgba(0, 0, 0, 0.6); /* Fondo naranja  al abrir */
+			 position: fixed;
+			 top: 0;
+			 left: 0;
+			 width: 	100vw; /* Asegura que el fondo cubra toda la ventana */
+			 height: 100vh; /* Asegura que el fondo cubra toda la ventana */
+	 }
+		 #menu-bar {
+			 position: absolute; /* Cambia la posición a relativa para permitir el posicionamiento relativo del menú */
+			 width: 40vw; /* Asegura que el fondo cubra toda la ventana */
+			 height: 60vh; /* Asegura que el fondo cubra toda la ventana */
+		 
+		 }
+		 .menu-bg.open {
+		 width: 40vw;
+		 height: 60vh; /* Asegura que el fondo cubra toda la ventana */
+		 
+		 }
+	 }
+	 @media (min-width: 768px) and (max-width: 991.98px) { 
+		 .menu-bg {
+			 background: rgba(0, 0, 0, 0.6); /* Fondo naranja  al abrir */
+			 position: fixed;
+			 top: 0;
+			 left: 0;
+			 width: 	100vw; /* Asegura que el fondo cubra toda la ventana */
+			 height: 100vh; /* Asegura que el fondo cubra toda la ventana */
+	 }
+		 #menu-bar {
+			 position: absolute; /* Cambia la posición a relativa para permitir el posicionamiento relativo del menú */
+			 width: 40vw; /* Asegura que el fondo cubra toda la ventana */
+			 height: 60vh; /* Asegura que el fondo cubra toda la ventana */
+		 
+		 }
+		 .menu-bg.open {
+		 width: 40vw;
+		 height: 60vh; /* Asegura que el fondo cubra toda la ventana*/
+				 }
+ 
+	  }
+	  @media (min-width: 992px) and (max-width: 1199.98px) { 
+		 .menu-bg {
+			 background: rgba(0, 0, 0, 0.6); /* Fondo naranja  al abrir */
+			 position: fixed;
+			 top: 0;
+			 left: 0;
+			 width: 	100vw; /* Asegura que el fondo cubra toda la ventana */
+			 height: 100vh; /* Asegura que el fondo cubra toda la ventana */
+	 }
+		 #menu-bar {
+			 position: absolute; /* Cambia la posición a relativa para permitir el posicionamiento relativo del menú */
+			 width: 25vw; /* Asegura que el fondo cubra toda la ventana */
+			 height: 100vh; /* Asegura que el fondo cubra toda la ventana */
+		 
+		 }
+	 }
+
+    /* Estilos del menú hamburguesa para la clase 'change' */
+	.change #menu-bar {
+		position: fixed;  /*Cambia la posición a fija para que el menú hamburguesa se mantenga visible al desplazarse */
+		top: 20px;  /*Ajusta la posición del menú en la parte superior */
+	   left: 20px;  /*Ajusta la posición del menú en el borde izquierdo */
+		z-index: 3;  /*Asegura que el menú hamburguesa esté por encima del menú */
+	 } 
+
+
+
 

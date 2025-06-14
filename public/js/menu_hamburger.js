@@ -1,64 +1,80 @@
-// public/js/menu-hamburger.js
+/*Ejecucion del menu desplegable en el icono */
 
-// Función para cargar el contenido de un archivo HTML en un elemento de la página
-async function loadHTML(elementId, filePath) {
-    try {
-        const response = await fetch(filePath);
-        if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
-        }
-        const html = await response.text();
-        const targetElement = document.getElementById(elementId);
-        if (targetElement) {
-            targetElement.innerHTML = html;
-            console.log(`Contenido de ${filePath} cargado en #${elementId}`);
-            // Adjuntar el event listener al icono de hamburguesa DESPUÉS de que se cargue el HTML
-            const hamburgerIcon = document.getElementById("hamburger-icon");
-            if (hamburgerIcon) {
-                hamburgerIcon.addEventListener('click', toggleMenu);
-            }
 
-            // Adjuntar el event listener al overlay para cerrar el menú al hacer clic fuera
-            const menuOverlay = document.getElementById("menu-overlay");
-            if (menuOverlay) {
-                menuOverlay.addEventListener('click', toggleMenu); // Usa la misma función para cerrar
-            }
-        } else {
-            console.error(`Error: Elemento con ID "${elementId}" no encontrado en el DOM.`);
-        }
-    } catch (error) {
-        console.error(`Error cargando HTML desde ${filePath}:`, error);
-    }
-}
+// function onClickMenu() {
+//     document.getElementById("menu").classList.toggle("change");
+//     var menu = document.getElementById('nav');
+//     var menuBg = document.getElementById('menu-bg');
 
-// Función para alternar el estado del menú
-function toggleMenu() {
-    // Referencias a los elementos del menú
-    const hamburgerIcon = document.getElementById("hamburger-icon");
-    const navMenu = document.getElementById("nav-menu");
-    const menuOverlay = document.getElementById("menu-overlay");
+//     // Añadir la clase 'open' al fondo del menú
+//     menuBg.classList.toggle('open');
+    
+//     if (menu.style.display === 'block') {
+//         menu.style.display = 'none';
+//         // Dejar la clase 'open' para mantener el estilo, pero ocultar el fondo
+//         menuBg.style.display = 'none';
+//     } else {
+//         menu.style.display = 'block';
+//         // Mostrar el fondo
+//         menuBg.style.display = 'block';
+//     }
+// }
 
-    if (hamburgerIcon && navMenu && menuOverlay) {
-        // Alterna las clases para abrir/cerrar el menú y animar el icono
-        hamburgerIcon.classList.toggle("open");
-        navMenu.classList.toggle("open");
-        menuOverlay.classList.toggle("open");
+// window.onscroll = function() {
+//     var menu = document.getElementById('menu-bar');
+//     var scrolled = window.scrollY;
+//     menu.style.transform = 'translateY(' + scrolled + 'px)';
+// };
 
-        // Deshabilita/habilita el scroll del cuerpo para evitar que el contenido
-        // de la página se desplace detrás del menú desplegable.
-        document.body.classList.toggle("no-scroll");
+
+
+/*Ejecucion del menu desplegable en cualquier parte de la pantalla */
+
+function onClickMenu() {
+    var menu = document.getElementById('nav');
+    var menuBg = document.getElementById('menu-bg');
+    var menuBtn = document.getElementById("menu"); // Botón de hamburguesa
+
+    // Alternar la clase 'change' en el ícono del menú
+    menuBtn.classList.toggle("change");
+
+    // Alternar la clase 'open' para el fondo del menú
+    menuBg.classList.toggle('open');
+
+    // Mostrar/ocultar el menú y el fondo
+    if (menu.style.display === 'block') {
+        menu.style.display = 'none';
+        menuBg.style.display = 'none';
     } else {
-        console.error("Error: Uno o más elementos del menú no se encontraron en el DOM.");
+        menu.style.display = 'block';
+        menuBg.style.display = 'block';
     }
 }
 
-// Espera a que el DOM esté completamente cargado para ejecutar las funciones iniciales
-document.addEventListener('DOMContentLoaded', () => {
-    // 1. Cargar el HTML del menú en la etiqueta <nav> de tu página principal
-    // ¡IMPORTANTE!: Asegúrate de que la etiqueta <nav> en tu HTML principal
-    // (ej. consumption.html) tenga este ID.
-    // Ejemplo: <nav id="main-nav-container"></nav>
-    loadHTML('main-nav-container', '/html/menu.html');
+// Detectar clics fuera del menú para ocultarlo
+document.addEventListener('click', function(event) {
+    var menu = document.getElementById('nav');
+    var menuBg = document.getElementById('menu-bg');
+    var menuBtn = document.getElementById("menu"); // Botón de hamburguesa
+    
+    // Comprobar si el clic ocurrió fuera del menú y el botón del menú
+    if (!menu.contains(event.target) && !menuBtn.contains(event.target)) {
+        // Si el menú está visible, lo ocultamos
+        if (menu.style.display === 'block') {
+            menu.style.display = 'none';
+            menuBg.style.display = 'none';
+
+            // También podemos eliminar la clase 'change' del ícono
+            menuBtn.classList.remove("change");
+            menuBg.classList.remove('open');
+        }
+    }
 });
 
-
+window.onscroll = function() {
+    var menu = document.getElementById('menu-bar');
+    if (menu) {
+    var scrolled = window.scrollY;
+    menu.style.transform = 'translateY(' + scrolled + 'px)';
+   }
+};
