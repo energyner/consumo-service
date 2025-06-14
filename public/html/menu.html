@@ -1,4 +1,4 @@
-  
+<!--   
     <div id="menu-bar"  >
         <div id="menu" onclick="onClickMenu()">
             <div id="bar1" class="bar"></div>
@@ -7,26 +7,63 @@
         </div>
     
         <ul class="nav" id="nav">
-            <li><a href="../../../../../index.html">Inicio</a></li>
-            <li><a href="../../../../../programa_entrenamiento.html">Sistema_Aprendizaje</a></li>
-            <li><a href="../../../../../entrenamiento.html">Entrenamiento</a></li>
+            <li><a href="https://www.energyner.net/jscript/index.html">Inicio</a></li>
+            <li><a href="https://www.energyner.net/jscript/programa_entrenamiento.html">Sistema_Aprendizaje</a></li>
+            <li><a href="https://www.energyner.net/jscript/entrenamiento.html">Entrenamiento</a></li>
             <li><a href="#">Acceso a Documentos</a></li> 
             <li>
                <ul>
-                    <li><a href="../../../../../acceso.php">Libro 1</a></li>
-                    <li><a href="../../../../../acceso.php">Libro 2</a></li>
+                    <li><a href="https://www.energyner.net/jscript/acceso.php">Libro 1</a></li>
+                    <li><a href="https://www.energyner.net/jscript/acceso.php">Libro 2</a></li>
+                    <li><a href="https://www.energyner.net/jscript/acceso.php">Libro 3</a></li>
+                    <li><a href="https://www.energyner.net/jscript/acceso.php">Libro 4</a></li>
+                    <li><a href="https://www.energyner.net/jscript/acceso.php">Libro 5</a></li>
+                    <li><a href="https://www.energyner.net/jscript/acceso.php">Libro 6</a></li>
+                    <li><a href="https://www.energyner.net/jscript/acceso.php">Libro 7</a></li>
                    
                 </ul>                  
             </li>
-            <li><a href="../../../../../contacto.html">Contacto</a></li>
-            <li><a href="../../../../../acceso_insertar_registros.php">Registrarse</a></li>
+            <li><a href="https://www.energyner.net/jscript/contacto.html">Contacto</a></li>
+            <li><a href="https://www.energyner.net/jscript/acceso_insertar_registros.php">Registrarse</a></li>
         </ul>      
     
     </div>
     
-    <div class="menu-bg" id="menu-bg"></div>
+    <div class="menu-bg" id="menu-bg"></div> -->
 
 
-  
+  <div id="menu-bar">
+    <!-- Icono de hamburguesa (las tres barras) -->
+    <div id="menu-icon" onclick="onClickMenu()">
+        <div class="bar1 bar"></div>
+        <div class="bar2 bar"></div>
+        <div class="bar3 bar"></div>
+    </div>
+
+    <!-- Lista de navegación principal -->
+    <ul class="nav-list" id="nav-list">
+        <li><a href="https://www.energyner.net/jscript/index.html">Inicio</a></li>
+        <li><a href="https://www.energyner.net/jscript/programa_entrenamiento.html">Sistema_Aprendizaje</a></li>
+        <li><a href="https://www.energyner.net/jscript/entrenamiento.html">Entrenamiento</a></li>
+        <li>
+            <a href="#">Acceso a Documentos</a>
+            <!-- Sub-menú para "Acceso a Documentos" -->
+            <ul class="sub-nav-list">
+                <li><a href="https://www.energyner.net/jscript/acceso.php">Libro 1</a></li>
+                <li><a href="https://www.energyner.net/jscript/acceso.php">Libro 2</a></li>
+                <li><a href="https://www.energyner.net/jscript/acceso.php">Libro 3</a></li>
+                <li><a href="https://www.energyner.net/jscript/acceso.php">Libro 4</a></li>
+                <li><a href="https://www.energyner.net/jscript/acceso.php">Libro 5</a></li>
+                <li><a href="https://www.energyner.net/jscript/acceso.php">Libro 6</a></li>
+                <li><a href="https://www.energyner.net/jscript/acceso.php">Libro 7</a></li>
+            </ul>
+        </li>
+        <li><a href="https://www.energyner.net/jscript/contacto.html">Contacto</a></li>
+        <li><a href="https://www.energyner.net/jscript/acceso_insertar_registros.php">Registrarse</a></li>
+    </ul>
+</div>
+
+<!-- Fondo oscuro (overlay) que aparece cuando el menú está abierto -->
+<div class="menu-overlay" id="menu-overlay"></div>
 
 
