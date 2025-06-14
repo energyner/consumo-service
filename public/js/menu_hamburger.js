@@ -1,3 +1,5 @@
+// public/js/menu-hamburger.js
+
 // Función para cargar el contenido de un archivo HTML en un elemento de la página
 async function loadHTML(elementId, filePath) {
     try {
@@ -6,70 +8,57 @@ async function loadHTML(elementId, filePath) {
             throw new Error(`HTTP error! status: ${response.status}`);
         }
         const html = await response.text();
-        document.getElementById(elementId).innerHTML = html;
-        console.log(`Content from ${filePath} loaded into #${elementId}`);
+        const targetElement = document.getElementById(elementId);
+        if (targetElement) {
+            targetElement.innerHTML = html;
+            console.log(`Contenido de ${filePath} cargado en #${elementId}`);
+            // Adjuntar el event listener al icono de hamburguesa DESPUÉS de que se cargue el HTML
+            const hamburgerIcon = document.getElementById("hamburger-icon");
+            if (hamburgerIcon) {
+                hamburgerIcon.addEventListener('click', toggleMenu);
+            }
+
+            // Adjuntar el event listener al overlay para cerrar el menú al hacer clic fuera
+            const menuOverlay = document.getElementById("menu-overlay");
+            if (menuOverlay) {
+                menuOverlay.addEventListener('click', toggleMenu); // Usa la misma función para cerrar
+            }
+        } else {
+            console.error(`Error: Elemento con ID "${elementId}" no encontrado en el DOM.`);
+        }
     } catch (error) {
-        console.error(`Error loading HTML from ${filePath}:`, error);
+        console.error(`Error cargando HTML desde ${filePath}:`, error);
     }
 }
 
-// Función que se ejecuta cuando se hace clic en el icono de la hamburguesa
-function onClickMenu() {
-    // Alterna la clase 'change' en el icono de la hamburguesa para su animación a 'X'
-    const menuIcon = document.getElementById("menu-icon");
-    if (menuIcon) {
-        menuIcon.classList.toggle("change");
-    }
-
-    // Alterna la clase 'active' en la lista de navegación para mostrar/ocultar el menú
-    const navList = document.getElementById("nav-list");
-    if (navList) {
-        navList.classList.toggle("active");
-    }
-
-    // Alterna la clase 'active' en el overlay de fondo
+// Función para alternar el estado del menú
+function toggleMenu() {
+    // Referencias a los elementos del menú
+    const hamburgerIcon = document.getElementById("hamburger-icon");
+    const navMenu = document.getElementById("nav-menu");
     const menuOverlay = document.getElementById("menu-overlay");
-    if (menuOverlay) {
-        menuOverlay.classList.toggle("active");
-    }
 
-    // Opcional: Deshabilita el scroll del cuerpo cuando el menú está abierto
-    // Esto es útil para evitar que el contenido de la página se desplace
-    // detrás del menú desplegable cuando este ocupa toda la altura.
-    document.body.classList.toggle("no-scroll");
+    if (hamburgerIcon && navMenu && menuOverlay) {
+        // Alterna las clases para abrir/cerrar el menú y animar el icono
+        hamburgerIcon.classList.toggle("open");
+        navMenu.classList.toggle("open");
+        menuOverlay.classList.toggle("open");
+
+        // Deshabilita/habilita el scroll del cuerpo para evitar que el contenido
+        // de la página se desplace detrás del menú desplegable.
+        document.body.classList.toggle("no-scroll");
+    } else {
+        console.error("Error: Uno o más elementos del menú no se encontraron en el DOM.");
+    }
 }
 
-// Espera a que el DOM esté completamente cargado para ejecutar las funciones
+// Espera a que el DOM esté completamente cargado para ejecutar las funciones iniciales
 document.addEventListener('DOMContentLoaded', () => {
     // 1. Cargar el HTML del menú en la etiqueta <nav> de tu página principal
-    // Asumiendo que tu <nav> principal tiene un ID (ej. id="main-nav-container")
-    // y que menu.html está en public/html/
-    // ¡IMPORTANTE!: Asegúrate de que tu etiqueta <nav> principal tenga un ID
-    // en tu archivo consumption.html o en el HTML donde la uses.
-    // Si tu HTML principal es: <nav id="main-nav-container"> </nav>
-    // Entonces el elemento al que debes cargar el menú es "main-nav-container"
-    // He puesto "main-nav-container" como placeholder, cámbialo al ID real de tu <nav>
-    loadHTML('main-nav-container', '/html/menu.html')
-        .then(() => {
-            // Asegúrate de que onClickMenu() esté disponible globalmente
-            // o adjunta el event listener después de cargar el HTML.
-            // En tu HTML, tienes onclick="onClickMenu()", así que ya está bien.
-        });
-
-    // 2. Adjuntar la función al objeto global window para que onClickMenu() sea accesible
-    // si no lo está ya por estar en un script defer/module.
-    window.onClickMenu = onClickMenu;
-
-
-    // Opcional: Cerrar el menú si se hace clic fuera de él (en el overlay)
-    const menuOverlay = document.getElementById("menu-overlay");
-    if (menuOverlay) {
-        menuOverlay.addEventListener('click', () => {
-            if (menuOverlay.classList.contains('active')) {
-                onClickMenu(); // Usa la misma función para cerrar
-            }
-        });
-    }
-
+    // ¡IMPORTANTE!: Asegúrate de que la etiqueta <nav> en tu HTML principal
+    // (ej. consumption.html) tenga este ID.
+    // Ejemplo: <nav id="main-nav-container"></nav>
+    loadHTML('main-nav-container', '/html/menu.html');
 });
+
 

@@ -32,23 +32,61 @@
     <div class="menu-bg" id="menu-bg"></div> -->
 
 
-  <div id="menu-bar">
-    <!-- Icono de hamburguesa (las tres barras) -->
+  <!-- <div id="menu-bar">
+   
     <div id="menu-icon" onclick="onClickMenu()">
         <div class="bar1 bar"></div>
         <div class="bar2 bar"></div>
         <div class="bar3 bar"></div>
     </div>
 
-    <!-- Lista de navegación principal -->
+
     <ul class="nav-list" id="nav-list">
         <li><a href="https://www.energyner.net/jscript/index.html">Inicio</a></li>
         <li><a href="https://www.energyner.net/jscript/programa_entrenamiento.html">Sistema_Aprendizaje</a></li>
         <li><a href="https://www.energyner.net/jscript/entrenamiento.html">Entrenamiento</a></li>
         <li>
             <a href="#">Acceso a Documentos</a>
-            <!-- Sub-menú para "Acceso a Documentos" -->
+          
             <ul class="sub-nav-list">
+                <li><a href="https://www.energyner.net/jscript/acceso.php">Libro 1</a></li>
+                <li><a href="https://www.energyner.net/jscript/acceso.php">Libro 2</a></li>
+                <li><a href="https://www.energyner.net/jscript/acceso.php">Libro 3</a></li>
+                <li><a href="https://www.energyner.net/jscript/acceso.php">Libro 4</a></li>
+                <li><a href="https://www.energyner.net/jscript/acceso.php">Libro 5</a></li>
+                <li><a href="https://www.energyner.net/jscript/acceso.php">Libro 6</a></li>
+                <li><a href="https://www.energyner.net/jscript/acceso.php">Libro 7</a></li>
+            </ul>
+        </li>
+        <li><a href="https://www.energyner.net/jscript/contacto.html">Contacto</a></li>
+        <li><a href="https://www.energyner.net/jscript/acceso_insertar_registros.php">Registrarse</a></li>
+    </ul>
+</div>
+
+
+<div class="menu-overlay" id="menu-overlay"></div> -->
+
+
+<!-- public/html/menu.html -->
+<!-- Este archivo contiene la estructura HTML del menú desplegable. -->
+
+<div id="main-menu-container">
+    <!-- Icono de hamburguesa (las tres barras) -->
+    <div id="hamburger-icon" onclick="toggleMenu()">
+        <div class="bar bar1"></div>
+        <div class="bar bar2"></div>
+        <div class="bar bar3"></div>
+    </div>
+
+    <!-- Lista de navegación principal (el menú que se desliza) -->
+    <ul class="nav-menu" id="nav-menu">
+        <li><a href="https://www.energyner.net/jscript/index.html">Inicio</a></li>
+        <li><a href="https://www.energyner.net/jscript/programa_entrenamiento.html">Sistema_Aprendizaje</a></li>
+        <li><a href="https://www.energyner.net/jscript/entrenamiento.html">Entrenamiento</a></li>
+        <li>
+            <a href="#">Acceso a Documentos</a>
+            <!-- Sub-menú para "Acceso a Documentos" -->
+            <ul class="sub-menu">
                 <li><a href="https://www.energyner.net/jscript/acceso.php">Libro 1</a></li>
                 <li><a href="https://www.energyner.net/jscript/acceso.php">Libro 2</a></li>
                 <li><a href="https://www.energyner.net/jscript/acceso.php">Libro 3</a></li>
@@ -65,5 +103,3 @@
 
 <!-- Fondo oscuro (overlay) que aparece cuando el menú está abierto -->
 <div class="menu-overlay" id="menu-overlay"></div>
-
-
