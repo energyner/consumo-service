@@ -1,30 +1,33 @@
 body {
-    font-family:Arial, Helvetica, sans-serif;
-    font-size: 14px;
-    margin: 0;
-    padding: 0;    
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  margin: 0;
+  padding: 0;
 }
-   * { /* selector universal */
-    box-sizing: border-box;
-   }
-  
-   .header {
-    color: #f56a6a;
-    display: flex;
-    justify-content: space-between; /* Distribuir los elementos con espacio entre ellos */
-    align-items: center; /* Centrar verticalmente */
-    padding: 5px 0;
-    background-color: #fff; /* Color de fondo opcional */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3); /* Sombra para el encabezado */
-    text-align: center;
-  }
+* {
+  /* selector universal */
+  box-sizing: border-box;
+}
+
+.header {
+  color: #f56a6a;
+  display: flex;
+  justify-content: space-between; /* Distribuir los elementos con espacio entre ellos */
+  align-items: center; /* Centrar verticalmente */
+  padding: 5px 0;
+  background-color: #fff; /* Color de fondo opcional */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3); /* Sombra para el encabezado */
+  text-align: center;
+}
 /* Estilos para las divisiones */
-  #1, #2, #3 {
+#1,
+#2,
+#3 {
   flex: 1; /* Asegura que cada div tome el mismo ancho */
   padding: 10px;
-  }
+}
 /* Estilos para el logo */
-  .logo_1{
+.logo_1 {
   /* font-size: 24px;
   font-weight: 300; */
   margin-right: 0;
@@ -32,97 +35,73 @@ body {
   top: 0;
   right: 0;
   z-index: 99; /* Asegura que esté por encima de otros elementos */
-  }
-  
-  /* Estilos para el menú desplegable redes sociales */
-  .dropdown {
+}
+
+/* Estilos para el menú desplegable redes sociales */
+.dropdown {
   position: relative;
   display: inline-block;
   background-color: #fff; /* Color de fondo opcional */
   padding-top: 7.5em;
-  }
-  
-  .dropbtn {
+}
+
+.dropbtn {
   background-color: transparent;
   border: none;
   cursor: pointer;
-  }
-  .dropbtn img {
+}
+.dropbtn img {
   width: 25px; /* Establece el ancho deseado */
   height: auto; /* Mantiene la proporción de la imagen */
-  }
-  
-  .dropdown-content {
+}
+
+.dropdown-content {
   display: none;
   position: absolute;
   right: 0;
   background-color: #f9f9f9;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 1;
-  }
-  
-  .dropdown-content a {
+}
+
+.dropdown-content a {
   color: black;
   padding: 5px 5px;
   text-decoration: none;
   display: block;
-  }
-  
-  .dropdown-content a img {
+}
+
+.dropdown-content a img {
   width: 22px;
   height: 22px;
-  }
-  
-  .dropdown-content a:hover {
-  background-color: #f1f1f1;
-  }
-  
-  .dropdown:hover .dropdown-content {
-  display: block;
-  }
-  
-  .dropdown:hover .dropbtn {
-  background-color: #ddd;
-  }
-  
-  /* Estilos del menú de navegación - lo saco fuera de operación y deja la franja como estetica*/
-  nav {
-  background-color: rgb(245, 106, 106);
-  padding: 10px 0;
-  }
-  
-  nav ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  text-align: center;
-  }
-  
-  nav ul li {
-  display: inline;
-  margin-right: 20px;
-  }
-  
-  nav ul li a {
-  color: #fff;
-  text-decoration: none;
-  padding: 5px 10px;
-  }
+}
 
-  /*Estilos de dos divisiones*/
+.dropdown-content a:hover {
+  background-color: #f1f1f1;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown:hover .dropbtn {
+  background-color: #ddd;
+}
+
+/*Estilos de dos divisiones*/
 
 .wrapper {
-    display: flex;
-    flex-wrap: wrap; /* Permite que las columnas se ajusten al ancho de la pantalla */
+  display: flex;
+  flex-wrap: wrap; /* Permite que las columnas se ajusten al ancho de la pantalla */
 }
 
 .column {
-    flex: 0 0 50%; /* Cada columna ocupa un tercio del ancho */
-    max-width: 50%; /* Se establece un ancho máximo para evitar que las columnas se expandan demasiado en pantallas grandes */
-    box-sizing: border-box; /* Incluye el padding y el borde en el ancho total */
-    padding: 20px; /* Espacio interno */
-    border: 1px solid #ccc; /* Borde para visualización */
-    text-align: left; /* Centra el contenido */
+  flex: 0 0 50%; /* Cada columna ocupa un tercio del ancho */
+  max-width: 50%; /* Se establece un ancho máximo para evitar que las columnas se expandan demasiado en pantallas grandes */
+  box-sizing: border-box; /* Incluye el padding y el borde en el ancho total */
+  padding: 20px; /* Espacio interno */
+  border: 1px solid #ccc; /* Borde para visualización */
+  text-align: left; /* Centra el contenido */
 }
 /*Estilos para el footer */
 footer {
@@ -133,40 +112,39 @@ footer {
   font-size: 14px;
 }
 
- 
 /*estilos para los encabezamientos de los textos*/
-.subcapitulo1{
-  border: 1px solid black; 
+.subcapitulo1 {
+  border: 1px solid black;
   border-radius: 0px;
   background-color: #f0e9fd;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.7); /* Sombra ligera */
-  padding: 10px; 
-  color:black; 
-  text-align: center; 
+  padding: 10px;
+  color: black;
+  text-align: center;
 }
-.subcapitulo2{
-  border: 1px solid black; 
+.subcapitulo2 {
+  border: 1px solid black;
   background-color: #faf2fd;
-  padding: 10px; 
-  color:black; 
-  text-align: center; 
-  font-size:  14px; 
-  font-weight:bold;
+  padding: 10px;
+  color: black;
+  text-align: center;
+  font-size: 14px;
+  font-weight: bold;
 }
-.subcapitulo3{
-  border: 1px solid black; 
+.subcapitulo3 {
+  border: 1px solid black;
   background-color: #faf2fd;
-  padding: 0px; 
-  color:black; 
-  text-align: left; 
-  font-size:  12px; 
-  font-weight:bold;
+  padding: 0px;
+  color: black;
+  text-align: left;
+  font-size: 12px;
+  font-weight: bold;
 }
 .articulo1 {
-  color:rgb(2, 0, 0); 
+  color: rgb(2, 0, 0);
   border: 2px solid crimson;
-  font-size:  12px; 
-  font-weight:300;
+  font-size: 12px;
+  font-weight: 300;
 }
 
 /*Estilos personalizados para la API*/
@@ -183,88 +161,87 @@ button {
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
 }
 button[type="submit"]:hover {
-    background-color: #0056b3;
-  }
+  background-color: #0056b3;
+}
 /*Estilos para el formulario */
 
 form {
-    background-color: #fff;
-    padding: 5px;
-    border-radius: 4px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    width: 200px;
+  background-color: #fff;
+  padding: 5px;
+  border-radius: 4px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 200px;
+  position: relative; /* O absolute, fixed, sticky */
+  z-index: 10;
+}
+
+label {
+  display: block;
+  margin-bottom: 4px;
+  font-weight: bold;
+}
+
+input[type="number"] {
+  width: 60%;
+  padding: 4px;
+  margin-bottom: 4px;
+  border: 1px solid #ccc;
+  border-radius: 2px;
+  box-sizing: border-box;
+  position: relative; /* O absolute, fixed, sticky */
+  z-index: 10;
+}
+
+button[type="submit"] {
+  width: 60%;
+  padding: 6px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  z-index: 10;
+}
+
+button[type="submit"]:hover {
+  background-color: #0056b3;
+}
+/* Concatenar los selectores que se agreguen. Imprimir el resultado*/
+#resultadoConsumo {
+  font-weight: bold;
+  color: #2c3e50; /* Un color oscuro para mejor legibilidad */
+  background-color: #ecf0f1; /* Un fondo claro para contraste */
+  padding: 10px;
+  border-radius: 5px;
+  margin-top: 10px;
+  border: 1px solid #bdc3c7; /* Un borde suave para definición */
+  text-align: center; /* Centra el texto */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Añade una ligera sombra */
+}
+
+@media (max-width: 768px) {
+  .column {
+    flex: 0 0 100%; /* En pantallas más pequeñas, cada columna ocupa el 100% del ancho */
+    max-width: 100%; /* Ancho máximo del 100% */
   }
-  
-  label {
-    display: block;
-    margin-bottom: 4px;
-    font-weight: bold;
-  }
-  
+}
+
+@media (max-width: 600px) {
+  /* Estilos específicos para pantallas pequeñas */
+  input[type="text"],
   input[type="number"] {
-    width: 60%;
-    padding: 4px;
-    margin-bottom: 4px;
-    border: 1px solid #ccc;
-    border-radius: 2px;
-    box-sizing: border-box;
+    font-size: 16px; /* Aumenta el tamaño de la fuente para facilitar la lectura */
+    padding: 12px; /* Aumenta el padding para mejorar la usabilidad táctil */
+    width: 100%; /* Asegura que los campos de entrada ocupen todo el ancho disponible */
+    box-sizing: border-box; /* Incluye padding y border en el ancho total */
   }
-  
-  button[type="submit"] {
-    width: 60%;
-    padding: 6px;
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 14px;
-  }
-  
-  button[type="submit"]:hover {
-    background-color: #0056b3;
-  }
-  /* Concatenar los selectores que se agreguen. Imprimir el resultado*/
-  #resultadoConsumo {
-    font-weight: bold;
-    color: #2c3e50; /* Un color oscuro para mejor legibilidad */
-    background-color: #ecf0f1; /* Un fondo claro para contraste */
-    padding: 10px;
-    border-radius: 5px;
-    margin-top: 10px;
-    border: 1px solid #bdc3c7; /* Un borde suave para definición */
-    text-align: center; /* Centra el texto */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Añade una ligera sombra */
-  }
-
-    @media (max-width: 768px) {
-    .column {
-        flex: 0 0 100%; /* En pantallas más pequeñas, cada columna ocupa el 100% del ancho */
-        max-width: 100%; /* Ancho máximo del 100% */
-    }
-   }
-
-   @media (max-width: 600px) {
-    /* Estilos específicos para pantallas pequeñas */
-    input[type="text"],
-    input[type="number"] 
-    {
-      font-size: 16px; /* Aumenta el tamaño de la fuente para facilitar la lectura */
-      padding: 12px; /* Aumenta el padding para mejorar la usabilidad táctil */
-      width: 100%; /* Asegura que los campos de entrada ocupen todo el ancho disponible */
-      box-sizing: border-box; /* Incluye padding y border en el ancho total */
-     }
-    button {
+  button {
     font-size: 16px;
     padding: 12px;
     display: block;
-    width: 100%; 
-    box-sizing: border-box; 
+    width: 100%;
+    box-sizing: border-box;
     margin-top: 20px;
-
-    }
-
-  
-
-
   }
+}

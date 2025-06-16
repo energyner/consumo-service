@@ -1,80 +1,34 @@
-/*Ejecucion del menu desplegable en el icono */
-
-
-// function onClickMenu() {
-//     document.getElementById("menu").classList.toggle("change");
-//     var menu = document.getElementById('nav');
-//     var menuBg = document.getElementById('menu-bg');
-
-//     // Añadir la clase 'open' al fondo del menú
-//     menuBg.classList.toggle('open');
-    
-//     if (menu.style.display === 'block') {
-//         menu.style.display = 'none';
-//         // Dejar la clase 'open' para mantener el estilo, pero ocultar el fondo
-//         menuBg.style.display = 'none';
-//     } else {
-//         menu.style.display = 'block';
-//         // Mostrar el fondo
-//         menuBg.style.display = 'block';
-//     }
-// }
-
-// window.onscroll = function() {
-//     var menu = document.getElementById('menu-bar');
-//     var scrolled = window.scrollY;
-//     menu.style.transform = 'translateY(' + scrolled + 'px)';
-// };
-
-
-
 /*Ejecucion del menu desplegable en cualquier parte de la pantalla */
-
 function onClickMenu() {
-    var menu = document.getElementById('nav');
-    var menuBg = document.getElementById('menu-bg');
-    var menuBtn = document.getElementById("menu"); // Botón de hamburguesa
+  const menu = document.getElementById("nav");
+  const menuBg = document.getElementById("menu-bg");
+  const menuBtn = document.getElementById("menu");
 
-    // Alternar la clase 'change' en el ícono del menú
-    menuBtn.classList.toggle("change");
-
-    // Alternar la clase 'open' para el fondo del menú
-    menuBg.classList.toggle('open');
-
-    // Mostrar/ocultar el menú y el fondo
-    if (menu.style.display === 'block') {
-        menu.style.display = 'none';
-        menuBg.style.display = 'none';
-    } else {
-        menu.style.display = 'block';
-        menuBg.style.display = 'block';
-    }
+  menuBtn.classList.toggle("change");
+  menuBg.classList.toggle("open");
+  menu.classList.toggle("open");
 }
 
-// Detectar clics fuera del menú para ocultarlo
-document.addEventListener('click', function(event) {
-    var menu = document.getElementById('nav');
-    var menuBg = document.getElementById('menu-bg');
-    var menuBtn = document.getElementById("menu"); // Botón de hamburguesa
-    
-    // Comprobar si el clic ocurrió fuera del menú y el botón del menú
-    if (!menu.contains(event.target) && !menuBtn.contains(event.target)) {
-        // Si el menú está visible, lo ocultamos
-        if (menu.style.display === 'block') {
-            menu.style.display = 'none';
-            menuBg.style.display = 'none';
+// Cerrar el menú si se hace clic fuera
+document.addEventListener("click", function (event) {
+  const menu = document.getElementById("nav");
+  const menuBg = document.getElementById("menu-bg");
+  const menuBtn = document.getElementById("menu");
 
-            // También podemos eliminar la clase 'change' del ícono
-            menuBtn.classList.remove("change");
-            menuBg.classList.remove('open');
-        }
+  if (!menu.contains(event.target) && !menuBtn.contains(event.target)) {
+    if (menu.classList.contains("open")) {
+      menu.classList.remove("open");
+      menuBg.classList.remove("open");
+      menuBtn.classList.remove("change");
     }
+  }
 });
 
-window.onscroll = function() {
-    var menu = document.getElementById('menu-bar');
-    if (menu) {
-    var scrolled = window.scrollY;
-    menu.style.transform = 'translateY(' + scrolled + 'px)';
-   }
+// Efecto al hacer scroll
+window.onscroll = function () {
+  const menu = document.getElementById("menu-bar");
+  if (menu) {
+    const scrolled = window.scrollY;
+    menu.style.transform = "translateY(" + scrolled + "px)";
+  }
 };
