@@ -17,17 +17,18 @@ debe ejecutarse solo después de que todo el contenido de la página esté compl
 Esto asegura que todos los elementos del DOM estén disponibles para su manipulación.  */
 
 function loadHTML(url, elementId) {
-    fetch(url)
-        .then(response => response.text())
-        .then(data => {
-            document.getElementById(elementId).innerHTML = data;
-        })
-        .catch(error => {
-            console.error('Error loading HTML:', error);
-        });
+  fetch(url)
+    .then((response) => response.text())
+    .then((data) => {
+      document.getElementById(elementId).innerHTML = data;
+    })
+    .catch((error) => {
+      console.error("Error loading HTML:", error);
+    });
 }
 
 function loadAll() {
+
     const elements = [
          { url: "./../public/html/menu.html", id: "nav1" },
         { url: "./../public/html/dropdown.html", id: "nav2" },
@@ -35,13 +36,14 @@ function loadAll() {
                
     ];
 
-    elements.forEach(element => {
-        console.log(`Attempting to load HTML into element with id: ${element.id}`);
-        const el = document.getElementById(element.id);
-        if (el) {
-            loadHTML(element.url, element.id);
-        } else {
-            console.error(`Element with id "${element.id}" not found.`);
-        }
-    });
+
+  elements.forEach((element) => {
+    console.log(`Attempting to load HTML into element with id: ${element.id}`);
+    const el = document.getElementById(element.id);
+    if (el) {
+      loadHTML(element.url, element.id);
+    } else {
+      console.error(`Element with id "${element.id}" not found.`);
+    }
+  });
 }
