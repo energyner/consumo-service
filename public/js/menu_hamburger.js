@@ -1,35 +1,5 @@
-/*Ejecucion del menu desplegable en el icono */
-
-
-// function onClickMenu() {
-//     document.getElementById("menu").classList.toggle("change");
-//     var menu = document.getElementById('nav');
-//     var menuBg = document.getElementById('menu-bg');
-
-//     // Añadir la clase 'open' al fondo del menú
-//     menuBg.classList.toggle('open');
-    
-//     if (menu.style.display === 'block') {
-//         menu.style.display = 'none';
-//         // Dejar la clase 'open' para mantener el estilo, pero ocultar el fondo
-//         menuBg.style.display = 'none';
-//     } else {
-//         menu.style.display = 'block';
-//         // Mostrar el fondo
-//         menuBg.style.display = 'block';
-//     }
-// }
-
-// window.onscroll = function() {
-//     var menu = document.getElementById('menu-bar');
-//     var scrolled = window.scrollY;
-//     menu.style.transform = 'translateY(' + scrolled + 'px)';
-// };
-
-
 
 /*Ejecucion del menu desplegable en cualquier parte de la pantalla */
-
 function onClickMenu() {
     var menu = document.getElementById('nav');
     var menuBg = document.getElementById('menu-bg');
@@ -73,8 +43,6 @@ document.addEventListener('click', function(event) {
 
 window.onscroll = function() {
     var menu = document.getElementById('menu-bar');
-    if (menu) {
     var scrolled = window.scrollY;
     menu.style.transform = 'translateY(' + scrolled + 'px)';
-   }
 };
