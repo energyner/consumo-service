@@ -68,8 +68,7 @@ document.getElementById("consumo-form").addEventListener("submit", (event) => {
       const resultadoConsumo = document.getElementById("resultadoConsumo");
       // Asegúrate de que 'resultado' o 'consumo_energetico' existen en la respuesta
       resultadoConsumo.textContent = `Consumo energético calculado: ${
-        data.consumo_energetico || data.resultado
-      } kWh`;
+        data.consumo_energetico || data.resultado    } Wh`;
       resultadoConsumo.style.color = "green";
     })
     .catch((error) => {
